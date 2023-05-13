@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  fastapi-challenge-api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    env_file: .env
+
+  fastapi-challenge-nginx:
+  
+    build: ./nginx
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    restart: always
+
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+
+    depends_on:
+      - fastapi-challenge-api
