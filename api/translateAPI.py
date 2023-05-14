@@ -65,7 +65,10 @@ async def get_translation(text: str, src: str, dest: str):
 
     #not all language combinations offer examples
     if all_info['examples']:
-        example_to_use = all_info['examples'][0][1][0].replace('<b>', '').replace('</b>', '')                   
+        try:
+            example_to_use = all_info['examples'][0][1][0].replace('<b>', '').replace('</b>', '')
+        except:
+            example_to_use =  all_info['examples'][0][0][0].replace('<b>', '').replace('</b>', '')                 
     else:
         example_to_use = None
 
@@ -91,7 +94,7 @@ def startup():
 
 
 
-@app.get("/translations/{word}/", status_code=status.HTTP_200_OK, response_model=WordResponse)
+@app.get("/translations/{word}/", status_code=status.HTTP_200_OK)
 async def get_word(word: str = Path(..., description="The word to be translated"),
                     src: str = Query(..., description="The language of the word passed in"),
                     dest: str = Query(..., description="The language the word will be translated to")):

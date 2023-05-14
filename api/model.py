@@ -1,9 +1,9 @@
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 from typing import List
 
 class WordParams(BaseModel):
-    original_language: str = Field(..., example="en") 
+    original_language: str = Field(..., example="en")
     translated_language: str = Field(..., example="es")
     primary_translation: str = Field(..., example="hola")
     alternative_translations: List[str] = Field(None, example=["hey", "hi"], nullable=True)
