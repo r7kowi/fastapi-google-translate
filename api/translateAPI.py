@@ -150,7 +150,7 @@ async def get_word(word: str = Path(..., description="The word to be translated"
             } 
         
 # get all words in the database applying pagination
-@app.get("/wordlist", status_code=status.HTTP_200_OK)
+@app.get("/wordlist", status_code=status.HTTP_200_OK, response_model=WordResponse)
 async def get_all_words(page: int  = Query(1, description="The page number to be returned"),
                         limit: int = Query(10, description="The number of words to be returned per page"),
                         keyword: str = Query(None, description="The keyword to be searched for"), 

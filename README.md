@@ -24,9 +24,9 @@ tool only provides translation, no additional characteristics. This API is hoste
 
 ### User Manual
 
-The API is available at: http://kovitek-alb-2124007352.eu-west-2.elb.amazonaws.com domain
+The API is available at: http://kovitek-google-translate-489384591.eu-west-2.elb.amazonaws.com domain
 
-Here is the API documentation on how to use the various endpoints and what are the required query parameters: http://kovitek-alb-2124007352.eu-west-2.elb.amazonaws.com/docs
+Here is the API documentation on how to use the various endpoints and what are the required query parameters: http://kovitek-google-translate-489384591.eu-west-2.elb.amazonaws.com/docs
 
 Here is an example how a successful request looks like to the '\translations\<word>' route;
 
